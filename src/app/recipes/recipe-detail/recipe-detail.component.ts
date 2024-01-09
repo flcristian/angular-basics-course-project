@@ -1,12 +1,13 @@
 import {Component, Input} from '@angular/core';
 import {Recipe} from "../recipe.model";
-import {NgIf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-recipe-detail',
   standalone: true,
   imports: [
-    NgIf
+    NgIf,
+    NgForOf
   ],
   templateUrl: './recipe-detail.component.html',
   styleUrl: './recipe-detail.component.css'

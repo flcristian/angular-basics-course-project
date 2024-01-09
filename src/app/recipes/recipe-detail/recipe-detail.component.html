@@ -4,6 +4,10 @@
     <img src="{{selectedRecipe.imagePath}}" alt="" class="recipe-image">
   </div>
   <p>{{selectedRecipe.description}}</p>
+  <h2>Ingredients:</h2>
+  <div class="ingredients-container">
+    <p *ngFor="let ingredient of selectedRecipe.ingredients">{{ ingredient.name }} ({{ingredient.ammount}})</p>
+  </div>
   <div class="btn-group">
     <button class="btn btn-primary dropdown-toggle" type="button" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       Manage Recipe

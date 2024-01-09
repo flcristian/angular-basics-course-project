@@ -2,6 +2,12 @@
   <section class="col-xs-10">
     <app-shopping-list-edit></app-shopping-list-edit>
     <hr>
-    <p>The list</p>
+    <h2>Shopping List:</h2>
+    <ul class="list-group">
+      <span href="" class="list-group-item" style="cursor: pointer" *ngFor="let ingredient of ingredients" [ngStyle]="{'max-width': '300px'}">
+        {{ ingredient.name }} ({{ingredient.ammount}})
+      </span>
+    </ul>
+
   </section>
 </main>
