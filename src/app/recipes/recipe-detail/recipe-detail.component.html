@@ -1,0 +1,26 @@
+<div class="row" *ngIf="selectedRecipe; else noRecipe">
+  <h1>{{selectedRecipe.name}}</h1>
+  <div style="border-radius: 20px; margin: 10px 0">
+    <img src="{{selectedRecipe.imagePath}}" alt="" class="recipe-image">
+  </div>
+  <p>{{selectedRecipe.description}}</p>
+  <div class="btn-group">
+    <button class="btn btn-primary dropdown-toggle" type="button" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      Manage Recipe
+    </button>
+    <div class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+      <button class="dropdown-item" type="button">Add Ingredients to Shopping List</button>
+      <button class="dropdown-item" type="button">Edit Recipe</button>
+      <button class="dropdown-item" type="button">Delete Recipe</button>
+    </div>
+  </div>
+</div>
+<ng-template #noRecipe>
+  <div class="row">
+    <h1>Please select a recipe!</h1>
+  </div>
+</ng-template>
+
+
+
+

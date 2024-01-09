@@ -1,0 +1,8 @@
+<main class="row">
+  <section class="col-md-6">
+    <app-recipe-list (recipeSelected)="onRecipeSelected($event)"></app-recipe-list>
+  </section>
+  <section class="col-md-6">
+    <app-recipe-detail [selectedRecipe]="selectedRecipe"></app-recipe-detail>
+  </section>
+</main>

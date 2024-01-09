@@ -1,1 +1,28 @@
-/* You can add global styles to this file, and also import other style files */
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+.recipe-list-container{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.recipe-container{
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 200px;
+  padding: 10px;
+  border: 1px solid dimgrey;
+  border-radius: 20px;
+}
+
+.recipe-image{
+  width: 100%;
+  border-radius: 7px;
+}
