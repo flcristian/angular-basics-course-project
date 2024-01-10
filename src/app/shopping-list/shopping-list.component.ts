@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ShoppingListEditComponent} from "./shopping-list-edit/shopping-list-edit.component";
-import {Ingredient} from "./ingredient.model";
-import {NgForOf, NgStyle} from "@angular/common";
+import {Ingredient} from "../shared/ingredient.model";
+import {NgForOf, NgIf, NgStyle} from "@angular/common";
+import {IngredientService} from "../shared/ingredient.service";
 
 @Component({
   selector: 'app-shopping-list',
@@ -9,14 +10,31 @@ import {NgForOf, NgStyle} from "@angular/common";
   imports: [
     ShoppingListEditComponent,
     NgForOf,
-    NgStyle
+    NgStyle,
+    NgIf
   ],
   templateUrl: './shopping-list.component.html',
   styleUrl: './shopping-list.component.css'
 })
-export class ShoppingListComponent {
-  ingredients: Ingredient[] = [
-    new Ingredient("Apple", 5, 3),
-    new Ingredient("Onion", 2, 10)
-  ];
+export class ShoppingListComponent implements OnInit {
+  ingredients: Map<Ingredient, number> = new Map<Ingredient, number>();
+
+  constructor(private ingredientService: IngredientService) {}
+
+  ngOnInit() {
+    this.ingredientService.addedIngredients$.subscribe((ingredients) => {
+      this.ingredients = ingredients;
+    });
+  }
+
+  getTotalPrice(): number{
+    let total = 0
+    for(let entry of this.ingredients.entries()){
+      let price = entry[0].pricePerItem
+      let ammount = entry[1]
+
+      total += price * ammount
+    }
+    return total
+  }
 }

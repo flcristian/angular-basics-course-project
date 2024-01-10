@@ -1,6 +1,8 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Recipe} from "../recipe.model";
 import {NgForOf, NgIf} from "@angular/common";
+import {Ingredient} from "../../shared/ingredient.model";
+import {IngredientService} from "../../shared/ingredient.service";
 
 @Component({
   selector: 'app-recipe-detail',
@@ -14,4 +16,10 @@ import {NgForOf, NgIf} from "@angular/common";
 })
 export class RecipeDetailComponent {
   @Input() selectedRecipe: Recipe | null = null;
+
+  constructor(private ingredientService: IngredientService) {}
+
+  onIngredientsAdded(ingredients: Map<Ingredient, number>) {
+    this.ingredientService.addIngredients(ingredients);
+  }
 }

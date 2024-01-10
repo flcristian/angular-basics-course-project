@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import {HeaderComponent} from "./header/header.component";
@@ -9,6 +9,8 @@ import {RecipeListComponent} from "./recipes/recipe-list/recipe-list.component";
 import {RecipeItemComponent} from "./recipes/recipe-list/recipe-item/recipe-item.component";
 import {ShoppingListComponent} from "./shopping-list/shopping-list.component";
 import {ShoppingListEditComponent} from "./shopping-list/shopping-list-edit/shopping-list-edit.component";
+import {Ingredient} from "./shared/ingredient.model";
+import {IngredientService} from "./shared/ingredient.service";
 
 @Component({
   selector: 'app-root',
@@ -20,5 +22,9 @@ import {ShoppingListEditComponent} from "./shopping-list/shopping-list-edit/shop
   styleUrl: './app.component.css',
 })
 export class AppComponent {
+  selectedTab: number = 0;
 
+  onTabSelected(index: number){
+    this.selectedTab = index
+  }
 }

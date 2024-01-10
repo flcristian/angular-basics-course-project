@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {RecipeListComponent} from "./recipe-list/recipe-list.component";
 import {RecipeDetailComponent} from "./recipe-detail/recipe-detail.component";
 import {HeaderComponent} from "../header/header.component";
 import {Recipe} from "./recipe.model";
+import {Ingredient} from "../shared/ingredient.model";
 
 @Component({
   selector: 'app-recipes',

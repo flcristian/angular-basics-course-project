@@ -1,13 +1,12 @@
-<main class="row">
-  <section class="col-xs-10">
-    <app-shopping-list-edit></app-shopping-list-edit>
-    <hr>
-    <h2>Shopping List:</h2>
+<main class="row" style="margin-bottom: 500px">
+  <section class="col-xs-12">
+    <h2 *ngIf="ingredients.size == 0">Your Shopping List is empty!</h2>
+    <h2 *ngIf="ingredients.size > 0">Your Shopping List:</h2>
     <ul class="list-group">
-      <span href="" class="list-group-item" style="cursor: pointer" *ngFor="let ingredient of ingredients" [ngStyle]="{'max-width': '300px'}">
-        {{ ingredient.name }} ({{ingredient.ammount}})
+      <span href="" class="list-group-item" style="cursor: pointer" *ngFor="let entry of ingredients.entries()" [ngStyle]="{'max-width': '300px'}">
+        {{ entry[0].name }} : {{entry[0].pricePerItem}}$ x {{entry[1]}}
       </span>
     </ul>
-
+    <h4 *ngIf="ingredients.size > 0" style="margin-top: 20px">Total price: {{getTotalPrice()}}$</h4>
   </section>
 </main>

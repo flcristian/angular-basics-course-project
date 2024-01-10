@@ -26,3 +26,7 @@ a{
   width: 100%;
   border-radius: 7px;
 }
+
+.hoverable{
+  cursor: pointer;
+}

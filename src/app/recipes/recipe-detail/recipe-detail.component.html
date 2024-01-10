@@ -6,14 +6,14 @@
   <p>{{selectedRecipe.description}}</p>
   <h2>Ingredients:</h2>
   <div class="ingredients-container">
-    <p *ngFor="let ingredient of selectedRecipe.ingredients">{{ ingredient.name }} ({{ingredient.ammount}})</p>
+    <p *ngFor="let entry of selectedRecipe.ingredients.entries()">{{ entry[0].name }} ({{ entry[1] }})</p>
   </div>
   <div class="btn-group">
     <button class="btn btn-primary dropdown-toggle" type="button" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       Manage Recipe
     </button>
     <div class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-      <button class="dropdown-item" type="button">Add Ingredients to Shopping List</button>
+      <button class="dropdown-item" type="button" (click)="onIngredientsAdded(selectedRecipe.ingredients)">Add Ingredients to Shopping List</button>
       <button class="dropdown-item" type="button">Edit Recipe</button>
       <button class="dropdown-item" type="button">Delete Recipe</button>
     </div>

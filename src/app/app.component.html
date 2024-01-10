@@ -1,7 +1,9 @@
-<app-header></app-header>
+<app-header (selectedTab)="onTabSelected($event)"></app-header>
 <main class="container">
-  <section class="col-md-12">
+  <section class="col-md-12" *ngIf="selectedTab == 0">
     <app-recipes></app-recipes>
+  </section>
+  <section class="col-md-12" *ngIf="selectedTab == 1">
     <app-shopping-list></app-shopping-list>
   </section>
 </main>
