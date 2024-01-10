@@ -30,3 +30,12 @@ a{
 .hoverable{
   cursor: pointer;
 }
+
+.shopping-list-item{
+  display: flex;
+  gap: 10px;
+}
+
+.shopping-list-button{
+  padding: 2px 8px;
+}

@@ -8,7 +8,6 @@ import {RecipeDetailComponent} from "./recipes/recipe-detail/recipe-detail.compo
 import {RecipeListComponent} from "./recipes/recipe-list/recipe-list.component";
 import {RecipeItemComponent} from "./recipes/recipe-list/recipe-item/recipe-item.component";
 import {ShoppingListComponent} from "./shopping-list/shopping-list.component";
-import {ShoppingListEditComponent} from "./shopping-list/shopping-list-edit/shopping-list-edit.component";
 import {Ingredient} from "./shared/ingredient.model";
 import {IngredientService} from "./shared/ingredient.service";
 
@@ -17,7 +16,7 @@ import {IngredientService} from "./shared/ingredient.service";
   standalone: true,
   imports: [HeaderComponent, RecipesComponent, RecipeBookComponent, RecipeDetailComponent,
     RecipeListComponent, RecipeItemComponent, ShoppingListComponent,
-    ShoppingListEditComponent, CommonModule, RouterOutlet],
+    CommonModule, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })

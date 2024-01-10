@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ShoppingListEditComponent} from "./shopping-list-edit/shopping-list-edit.component";
 import {Ingredient} from "../shared/ingredient.model";
 import {NgForOf, NgIf, NgStyle} from "@angular/common";
 import {IngredientService} from "../shared/ingredient.service";
@@ -8,7 +7,6 @@ import {IngredientService} from "../shared/ingredient.service";
   selector: 'app-shopping-list',
   standalone: true,
   imports: [
-    ShoppingListEditComponent,
     NgForOf,
     NgStyle,
     NgIf
@@ -36,5 +34,17 @@ export class ShoppingListComponent implements OnInit {
       total += price * ammount
     }
     return total
+  }
+
+  onSubtractIngredient(ingredient: Ingredient){
+    this.ingredientService.subtractIgredient(ingredient);
+  }
+
+  onIncrementIngredient(ingredient: Ingredient){
+    this.ingredientService.incrementIgredient(ingredient);
+  }
+
+  onDeleteIngredient(ingredient: Ingredient){
+    this.ingredientService.deleteIngredient(ingredient);
   }
 }

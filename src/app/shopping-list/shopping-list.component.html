@@ -3,8 +3,13 @@
     <h2 *ngIf="ingredients.size == 0">Your Shopping List is empty!</h2>
     <h2 *ngIf="ingredients.size > 0">Your Shopping List:</h2>
     <ul class="list-group">
-      <span href="" class="list-group-item" style="cursor: pointer" *ngFor="let entry of ingredients.entries()" [ngStyle]="{'max-width': '300px'}">
-        {{ entry[0].name }} : {{entry[0].pricePerItem}}$ x {{entry[1]}}
+      <span href="" class="list-group-item shopping-list-item" style="cursor: pointer"
+            *ngFor="let entry of ingredients.entries()" >
+        <h4>{{ entry[0].name }}</h4>
+        <span>{{entry[0].pricePerItem}}$ x {{entry[1]}}</span>
+        <button class="btn btn-success shopping-list-button" (click)="onIncrementIngredient(entry[0])">+</button>
+        <button class="btn btn-warning shopping-list-button" (click)="onSubtractIngredient(entry[0])">-</button>
+        <button class="btn btn-danger shopping-list-button" (click)="onDeleteIngredient(entry[0])">Remove</button>
       </span>
     </ul>
     <h4 *ngIf="ingredients.size > 0" style="margin-top: 20px">Total price: {{getTotalPrice()}}$</h4>
