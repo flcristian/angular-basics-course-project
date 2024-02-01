@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Ingredient} from "../shared/ingredient.model";
 import {NgForOf, NgIf, NgStyle} from "@angular/common";
 import {IngredientService} from "../shared/ingredient.service";
+import {ShoppingListEditComponent} from "./shopping-list-edit/shopping-list-edit.component";
 
 @Component({
   selector: 'app-shopping-list',
@@ -9,7 +10,8 @@ import {IngredientService} from "../shared/ingredient.service";
   imports: [
     NgForOf,
     NgStyle,
-    NgIf
+    NgIf,
+    ShoppingListEditComponent
   ],
   templateUrl: './shopping-list.component.html',
   styleUrl: './shopping-list.component.css'
@@ -29,9 +31,9 @@ export class ShoppingListComponent implements OnInit {
     let total = 0
     for(let entry of this.ingredients.entries()){
       let price = entry[0].pricePerItem
-      let ammount = entry[1]
+      let amount = entry[1]
 
-      total += price * ammount
+      total += price * amount
     }
     return total
   }
@@ -46,5 +48,14 @@ export class ShoppingListComponent implements OnInit {
 
   onDeleteIngredient(ingredient: Ingredient){
     this.ingredientService.deleteIngredient(ingredient);
+  }
+
+  onIngredientAdded(ingredientDetails: {name: string, price: number, amount: number}) {
+    let ingredient: Ingredient = new Ingredient(ingredientDetails.name, ingredientDetails.price)
+
+    let toAdd = new Map<Ingredient, number>();
+    toAdd.set(ingredient, ingredientDetails.amount)
+
+    this.ingredientService.addIngredients(toAdd);
   }
 }

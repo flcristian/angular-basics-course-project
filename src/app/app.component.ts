@@ -21,9 +21,9 @@ import {IngredientService} from "./shared/ingredient.service";
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  selectedTab: number = 0;
+  loadedFeature: string = 'recipes'
 
-  onTabSelected(index: number){
-    this.selectedTab = index
+  onNavigate(feature: string) {
+    this.loadedFeature = feature
   }
 }

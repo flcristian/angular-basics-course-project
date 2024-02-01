@@ -1,4 +1,5 @@
 <main class="row" style="margin-bottom: 500px">
+  <app-shopping-list-edit (ingredientAdded)="onIngredientAdded($event)"></app-shopping-list-edit>
   <section class="col-xs-12">
     <h2 *ngIf="ingredients.size == 0">Your Shopping List is empty!</h2>
     <h2 *ngIf="ingredients.size > 0">Your Shopping List:</h2>

@@ -1,9 +1,7 @@
-<app-header (selectedTab)="onTabSelected($event)"></app-header>
+<app-header (featureSelected)="onNavigate($event)"></app-header>
 <main class="container">
-  <section class="col-md-12" *ngIf="selectedTab == 0">
-    <app-recipes></app-recipes>
-  </section>
-  <section class="col-md-12" *ngIf="selectedTab == 1">
-    <app-shopping-list></app-shopping-list>
+  <section class="col-md-12">
+    <app-recipes *ngIf="loadedFeature === 'recipes'"></app-recipes>
+    <app-shopping-list *ngIf="loadedFeature !== 'recipes'"></app-shopping-list>
   </section>
 </main>

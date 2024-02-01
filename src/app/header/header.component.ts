@@ -11,11 +11,9 @@ import {NgClass} from "@angular/common";
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  activeTab: number = 0
-  @Output() selectedTab = new EventEmitter<number>()
+  @Output() featureSelected = new EventEmitter<string>();
 
-  onSelectTab(index: number){
-    this.activeTab = index
-    this.selectedTab.emit(index)
+  onSelect(feature: string) {
+    this.featureSelected.emit(feature)
   }
 }
